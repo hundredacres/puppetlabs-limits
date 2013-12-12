@@ -7,7 +7,7 @@
 #    $value - value of limit
 #
 # Actions:
-#    creates a fragment fil corresponing to each limit entry  
+#    creates a fragment fil corresponing to each limit entry
 define limits::fragment (
   $value
 ) {
@@ -20,6 +20,6 @@ define limits::fragment (
 
   file { "${limits::fragments_dir}/${file_name}.txt":
     content => inline_template("<%= title.gsub('/', ' ') %> <%= value %>\n"),
-    before => Exec['cp_limits']
+    before  => Exec['cp_limits']
   }
 }
